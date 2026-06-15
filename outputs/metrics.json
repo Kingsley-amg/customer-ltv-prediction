@@ -1,0 +1,17 @@
+{
+  "n_customers": 5278,
+  "active_next_quarter_pct": 0.4352,
+  "churn_roc_auc": 0.787,
+  "churn_pr_auc": 0.767,
+  "value_mae": 394.75,
+  "value_spearman": 0.549,
+  "model_capture_top20": 0.654,
+  "pastspend_capture_top20": 0.672,
+  "lift_top20_vs_random": 3.27,
+  "top_decile_vs_bottom_decile_x": 50.1,
+  "high_value_threshold_gbp": 2118.1,
+  "n_high_value_test": 338,
+  "n_at_risk_test": 44,
+  "revenue_at_risk_test_gbp": 273001.45,
+  "at_risk_share_of_high_value": 0.13
+}

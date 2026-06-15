@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Large raw data — reproducible via 01_build_features.py (see README)
+data/online_retail_II.xlsx
+data/online_retail_ii.zip
+data/retail.db
+
+# Keep: data/customer_features.csv, sql/, outputs/
