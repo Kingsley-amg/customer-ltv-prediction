@@ -1,5 +1,5 @@
 """
-Step 1 — Data engineering with SQL.
+Step 1, Data engineering with SQL.
 Loads the Online Retail II transactions into a SQLite database, then uses SQL to
 build a customer-level feature table:
   * Features come from a CALIBRATION window (everything up to a cutoff date).

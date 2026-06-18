@@ -1,5 +1,5 @@
 """
-Step 2 — Predict customer behaviour (will they buy again?) and value (how much?),
+Step 2, Predict customer behaviour (will they buy again?) and value (how much?),
 then translate the predictions into marketing actions and measurable impact.
 
 Two models on the same RFM-style features:
@@ -53,7 +53,7 @@ plt.title("Next-quarter revenue is skewed and zero-inflated")
 plt.tight_layout(); plt.savefig(OUT / "01_target_distribution.png", dpi=120); plt.close()
 
 # ===========================================================================
-# MODEL 1 — will the customer buy again next quarter? (behaviour)
+# MODEL 1, will the customer buy again next quarter? (behaviour)
 # ===========================================================================
 clf = HistGradientBoostingClassifier(max_depth=6, learning_rate=0.06,
                                      max_iter=400, random_state=RS)
@@ -71,7 +71,7 @@ plt.title("Predicting who returns next quarter"); plt.legend()
 plt.tight_layout(); plt.savefig(OUT / "04_churn_roc.png", dpi=120); plt.close()
 
 # ===========================================================================
-# MODEL 2 — how much will they spend? (value)  [log target]
+# MODEL 2, how much will they spend? (value)  [log target]
 # ===========================================================================
 reg = HistGradientBoostingRegressor(max_depth=6, learning_rate=0.06, max_iter=500,
                                     l2_regularization=1.0, random_state=RS)
@@ -84,7 +84,7 @@ M["value_spearman"] = round(float(spearmanr(y_value.iloc[ite], pred_spend).stati
 exp_value = p_active * pred_spend
 
 # ===========================================================================
-# BUSINESS IMPACT 1 — gains chart (revenue captured by targeting top X%)
+# BUSINESS IMPACT 1, gains chart (revenue captured by targeting top X%)
 # ===========================================================================
 te = pd.DataFrame({"actual": y_value.iloc[ite].values,
                    "score": exp_value,
@@ -128,7 +128,7 @@ plt.tight_layout(); plt.savefig(OUT / "03_decile_lift.png", dpi=120); plt.close(
 M["top_decile_vs_bottom_decile_x"] = round(float(dec["D10"] / max(dec["D1"], 1e-9)), 1)
 
 # ===========================================================================
-# BUSINESS IMPACT 2 — high-value customers at risk of lapsing
+# BUSINESS IMPACT 2, high-value customers at risk of lapsing
 # (something "rank by past spend" alone cannot surface)
 # ===========================================================================
 hv_cut = float(df["monetary_total"].quantile(0.75))

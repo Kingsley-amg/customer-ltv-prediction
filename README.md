@@ -5,7 +5,7 @@ quarter and how much they will spend, then turning those predictions into
 **actionable marketing decisions** and a **measurable revenue impact**.
 
 Built on the real **Online Retail II** dataset: **805,549 transactions** from a UK
-online retailer (2009–2011), covering **5,278 customers**.
+online retailer (2009-2011), covering **5,278 customers**.
 
 ---
 
@@ -22,13 +22,13 @@ and predicts their **next-quarter** behaviour and spend.
 | Outcome | Result |
 |---|---|
 | **Repeat-purchase model** (will the customer buy next quarter?) | ROC-AUC **0.79** |
-| **Targeting the top 20% of customers by predicted value** | captures **65% of next-quarter revenue** — a **3.3× lift** over untargeted outreach |
+| **Targeting the top 20% of customers by predicted value** | captures **65% of next-quarter revenue**, a **3.3× lift** over untargeted outreach |
 | **Value concentration** | the top predicted-value decile spends **~50×** the bottom decile |
 | **At-risk revenue surfaced** | **44 high-value customers** worth **£273k** in historic revenue (hold-out sample; ≈ **£1.1M across the full base**) flagged as likely to lapse |
 
 **So what:** marketing can (1) concentrate spend on the ~20% of customers who drive
 two-thirds of next-quarter revenue, and (2) act on a **named retention list** of
-high-value customers predicted to churn — *before* they leave. That second list is
+high-value customers predicted to churn, *before* they leave. That second list is
 something a simple "rank by past spend" report cannot produce.
 
 > **Honest note:** for pure revenue-ranking, ranking customers by past spend is a
@@ -42,16 +42,16 @@ something a simple "rank by past spend" report cannot produce.
 
 ## 🛠️ How it works
 
-1. **Data engineering in SQL** (`01_build_features.py`, `sql/build_features.sql`) —
+1. **Data engineering in SQL** (`01_build_features.py`, `sql/build_features.sql`), 
    transactions are loaded into a **SQLite** database; SQL builds a customer-level
    feature table (RFM: recency, frequency, monetary; plus tenure, average order
    value, product variety, active months, and recent 90-day spend). The **target**
    is each customer's revenue in the following 91 days.
-2. **Modelling in Python** (`02_model_ltv.py`) —
+2. **Modelling in Python** (`02_model_ltv.py`), 
    - a **gradient-boosted classifier** predicts repeat purchase (behaviour);
    - a **gradient-boosted regressor** predicts next-quarter spend (value);
    - the two combine into an **expected-value score** used for targeting.
-3. **Business translation** — a gains chart, decile lift, and an at-risk high-value
+3. **Business translation**, a gains chart, decile lift, and an at-risk high-value
    customer list.
 
 ## 🗂️ Repository structure
@@ -79,4 +79,4 @@ Data: [UCI Online Retail II](https://archive.ics.uci.edu/dataset/502/online+reta
 matplotlib / seaborn
 
 ## 👤 Author
-**Kingsley Amegah** — Health & Marketing Data Scientist · GitHub: [@Kingsley-amg](https://github.com/Kingsley-amg)
+**Kingsley Amegah**, Health & Marketing Data Scientist · GitHub: [@Kingsley-amg](https://github.com/Kingsley-amg)
